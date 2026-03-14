@@ -1,58 +1,40 @@
-### Overview
+# Overview
 
-This is a set of scripts for copying "liked" songs and playlists from Spotify to YTMusic. It provides a GUI (implemented by Yoween, formerly called spotify_to_ytmusic_gui).
+This is a tool for copying liked songs and playlists from Spotify to YouTubeMusic. This was originally created by [linsomniac](https://github.com/linsomniac) and you can find his project [here](https://github.com/linsomniac/spotify_to_ytmusic). Huge thanks to him for creating this free and incredible project for all of us to use, and for me to learn from!
 
----
+# Changes from the Original
 
-### Preparation/Pre-Conditions
-
-1. **Install Python and Git** (you may already have them installed).
-2. **Uninstall the pip package from the original repository** (if you previously installed `linsomniac/spotify_to_ytmusic`):
-
-   On Windows:
-
-   ```bash
-   python -m pip uninstall spotify2ytmusic
-   ```
-
-   On Linux or Mac:
-
-   ```bash
-   python3 -m pip uninstall spotify2ytmusic
-   ```
+His version uses a now deprecated Spotify authentication, which I have updated to use PKCE.
 
 ---
+## Requirements
 
-### Setup Instructions
+- Python 3
+- pip
 
-#### 1. Clone, Create a Virtual Environment, and Install Required Packages
+## Setup
 
-Start by creating and activating a Python virtual environment to isolate dependencies.
+**1. Clone the repo and navigate into it:**
 
-```bash
-git clone https://github.com/linsomniac/spotify_to_ytmusic.git
+'''
+git clone https://github.com/Trev-ver1/spotify_to_ytmusic.git
 cd spotify_to_ytmusic
-```
+'''
 
-On Windows:
+**2. Create and activate a virtual environment (.venv):**
 
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install ytmusicapi tk
-```
-
-On Linux or Mac:
-
-```bash
+'''
 python3 -m venv .venv
 source .venv/bin/activate
+'''
+
+**3. Install Dependencies:**
+
+'''
 pip install ytmusicapi tk
-```
+'''
 
----
-
-#### 2. Generate YouTube Music Credentials
+**4. Generate YouTube Music Credentials:**
 
 To use the YouTube Music API, you need to generate valid credentials. Follow these steps:
 
@@ -62,11 +44,14 @@ To use the YouTube Music API, you need to generate valid credentials. Follow the
 4. **Select a Request**: Click one of the requests under the filtered results and locate the _Request Headers_ section.
 5. **Toggle RAW View**: Click the RAW toggle button to view the headers in raw format.
 6. **Copy Headers**: Right-click, choose _Select All_, and copy the content.
-7. **Paste into `raw_headers.txt`**: Open the `raw_headers.txt` file located in the main directory of this project and paste the copied content into it.
+7. **Create a 'raw_headers.txt' file**:
 
-**Run the Script**:
+'''
+touch raw_headers.txt
+'''
+8. **Paste into `raw_headers.txt`**: Open the `raw_headers.txt` file you just created in the main directory of this project and paste the copied content into it.
 
-Execute the following command to generate the credentials file:
+9. **Run the '''ytmusic_credentials.py''' Script**:This will create an authentication file named oauth.json. Use the following command to generate the authentication file:
 
 On Windows:
 
@@ -80,8 +65,7 @@ On Linux or Mac:
 python3 spotify2ytmusic/ytmusic_credentials.py
 ```
 
-**Important**: After running this script, the authentication file will be created.
-When you launch the GUI in the next step, it will automatically detect this file and log in to YouTube Music without requiring manual input. You’ll see a log message confirming this:
+**Important**: When you launch the GUI in the next step, it will automatically detect this file and log in to YouTube Music without requiring manual input. You’ll see a log message confirming this:
 
 ```
 File detected, auto login
@@ -91,9 +75,9 @@ The GUI will **ignore the 'Login to YT Music' tab** and jump straight to the 'Sp
 
 ---
 
-#### 3. Use the GUI for Migration
+## Using the GUI
 
-Now you can use the graphical user interface (GUI) to migrate your playlists and liked songs to YouTube Music. Start the GUI with the following command:
+Now you can use the GUI to migrate your playlists and liked songs to YouTube Music. Start the GUI with the following command:
 
 On Windows:
 
@@ -113,7 +97,7 @@ python3 -m spotify2ytmusic gui
 
 Once the GUI is running, you can:
 
-- **Backup Your Spotify Playlists**: Save your playlists and liked songs into the file `playlists.json`.
+- **Backup Your Spotify Playlists**: Save your playlists and liked songs into a file `playlists.json`.
 - **Load Liked Songs**: Migrate your Spotify liked songs to YouTube Music.
 - **List Playlists**: View your playlists and their details.
 - **Copy All Playlists**: Migrate all Spotify playlists to YouTube Music.
@@ -302,6 +286,6 @@ No, this runs on Linux/Windows/MacOS.
 Creative Commons Zero v1.0 Universal
 
 spotify-backup.py licensed under MIT License.
-See <https://github.com/caseychu/spotify-backup> for more information.
+See <https://github.com/linsomniac/spotify_to_ytmusic> and <https://github.com/caseychu/spotify-backup> for more information.
 
 [//]: # " vim: set tw=90 ts=4 sw=4 ai: "
