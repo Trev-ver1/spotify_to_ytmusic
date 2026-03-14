@@ -32,15 +32,32 @@ source .venv/bin/activate
 
 ```bash
 pip install ytmusicapi tk
+pip install poetry-core
 ```
 
-**4. Generate YouTube Music Credentials:**
+**4. Install tkinter:**
+**NOTE**: Make sure you have tkinter installed on your linux distro:
+
+```bash
+sudo apt install python3-tk
+```
+
+**5. Install Packages:**
+
+```bash
+pip install -e .
+```
+
+**6. Generate YouTube Music Credentials:**
 
 To use the YouTube Music API, you need to generate valid credentials. Follow these steps:
 
 1. **Log in to YouTube Music**: Open YouTube Music in Firefox and ensure you are logged in.
 2. **Open the Inspection Tool**: Press `F12` or right-click and select _Inspect_ to open the browser's inspection tool.
-3. **Access the Network Tab**: Navigate to the Network tab and filter by `/browse`.
+3. **Access the Network Tab**: Navigate to the Network tab and filter by `/browse`. 
+
+**NOTE**: If nothing shows up on the list after filtering for `/browse`, simply click something in YouTube Music (a playlist, album, or Home) to trigger a request.
+
 4. **Select a Request**: Click one of the requests under the filtered results and locate the _Request Headers_ section.
 5. **Toggle RAW View**: Click the RAW toggle button to view the headers in raw format.
 6. **Copy Headers**: Right-click, choose _Select All_, and copy the content.
@@ -66,7 +83,7 @@ On Linux or Mac:
 python3 spotify2ytmusic/ytmusic_credentials.py
 ```
 
-**Important**: When you launch the GUI in the next step, it will automatically detect this file and log in to YouTube Music without requiring manual input. You’ll see a log message confirming this:
+**NOTE**: When you launch the GUI in the next step, it will automatically detect this file and log in to YouTube Music without requiring manual input. You’ll see a log message confirming this:
 
 ```
 File detected, auto login
@@ -144,6 +161,7 @@ Re-running "copy_playlist" or "load_liked" in the event that it fails should be 
 will not duplicate entries on the playlist.
 
 ## Command Line Usage
+**NOTE**: These commands require the package to be installed via `pip install -e .` as described in the setup steps above.
 
 ### Ways to Run
 
@@ -161,7 +179,7 @@ See "Generate YouTube Music Credentials" above.
 
 Run `spotify2ytmusic/spotify_backup.py` and it will help you authorize access to your spotify account.
 
-Run: `python3 spotify_backup.py playlists.json --dump=liked,playlists --format=json`
+Run: `python3 spotify2ytmusic/spotify_backup.py playlists.json --dump=liked,playlists --format=json`
 
 This will save your playlists and liked songs into the file "playlists.json".
 
@@ -224,7 +242,7 @@ will not duplicate entries on the playlist.
 
 This is mostly for debugging, but there is a command to search for tracks in YTMusic:
 
-## `s2yt_search --artist <ARTIST> --album <ALBUM> <TRACK_NAME>`
+`s2yt_search --artist <ARTIST> --album <ALBUM> <TRACK_NAME>`
 
 ## Details About Search Algorithms
 
@@ -288,5 +306,3 @@ Creative Commons Zero v1.0 Universal
 
 spotify-backup.py licensed under MIT License.
 See <https://github.com/linsomniac/spotify_to_ytmusic> and <https://github.com/caseychu/spotify-backup> for more information.
-
-[//]: # " vim: set tw=90 ts=4 sw=4 ai: "
