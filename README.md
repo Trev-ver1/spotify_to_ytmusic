@@ -150,7 +150,7 @@ Copying all playlists will use the name of the Spotify playlist as the destinati
 
 ### Copy specific Playlist - Tab 6
 
-In the list output, find the "playlist id" (the first column) of the Spotify playlist and of the YTMusic playlist.
+In the list output, find the "playlist id" in (the first column) of the Spotify playlist and of the YTMusic playlist.
 
 #### Then fill both input fields and click the `copy` button
 
