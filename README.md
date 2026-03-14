@@ -16,23 +16,23 @@ His version uses a now deprecated Spotify authentication, which I have updated t
 
 **1. Clone the repo and navigate into it:**
 
-'''
+```bash
 git clone https://github.com/Trev-ver1/spotify_to_ytmusic.git
 cd spotify_to_ytmusic
-'''
+```
 
 **2. Create and activate a virtual environment (.venv):**
 
-'''
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
-'''
+```
 
 **3. Install Dependencies:**
 
-'''
+```bash
 pip install ytmusicapi tk
-'''
+```
 
 **4. Generate YouTube Music Credentials:**
 
@@ -46,12 +46,13 @@ To use the YouTube Music API, you need to generate valid credentials. Follow the
 6. **Copy Headers**: Right-click, choose _Select All_, and copy the content.
 7. **Create a 'raw_headers.txt' file**:
 
-'''
+```bash
 touch raw_headers.txt
-'''
+```
+
 8. **Paste into `raw_headers.txt`**: Open the `raw_headers.txt` file you just created in the main directory of this project and paste the copied content into it.
 
-9. **Run the '''ytmusic_credentials.py''' Script**:This will create an authentication file named oauth.json. Use the following command to generate the authentication file:
+9. **Run the ```ytmusic_credentials.py``` Script**:This will create an authentication file named oauth.json. Use the following command to generate the authentication file:
 
 On Windows:
 
