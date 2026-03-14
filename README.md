@@ -44,7 +44,7 @@ To use the YouTube Music API, you need to generate valid credentials. Follow the
 4. **Select a Request**: Click one of the requests under the filtered results and locate the _Request Headers_ section.
 5. **Toggle RAW View**: Click the RAW toggle button to view the headers in raw format.
 6. **Copy Headers**: Right-click, choose _Select All_, and copy the content.
-7. **Create a 'raw_headers.txt' file**:
+7. **Create a `raw_headers.txt` file**:
 
 ```bash
 touch raw_headers.txt
@@ -52,7 +52,7 @@ touch raw_headers.txt
 
 8. **Paste into `raw_headers.txt`**: Open the `raw_headers.txt` file you just created in the main directory of this project and paste the copied content into it.
 
-9. **Run the ```ytmusic_credentials.py``` Script**:This will create an authentication file named oauth.json. Use the following command to generate the authentication file:
+9. **Run the `ytmusic_credentials.py` Script**:This will create an authentication file named `oauth.json`. Use the following command to generate the authentication file:
 
 On Windows:
 
